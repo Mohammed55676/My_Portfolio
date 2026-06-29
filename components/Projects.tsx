@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { iconMap, Github } from '@/lib/icons'
+import { ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import type { Project } from '@/lib/types'
 
@@ -18,64 +19,26 @@ const fadeIn = {
 // Fallback projects
 const fallbackProjects: Project[] = [
   {
-    icon: 'Cloud',
-    title: 'Rainfall and Temperature Prediction',
-    description: 'ML-based analysis for climate and agriculture forecasting. Developed machine learning models to predict rainfall patterns and temperature variations, supporting agricultural planning and climate analysis.',
-    technologies: ['Machine Learning', 'Time Series', 'Climate Analysis', 'Python'],
-    github: 'https://github.com/SarbajitPbappy/RainfallML',
-    category: 'Machine Learning',
-    gradient: 'from-blue-500 to-cyan-500',
+    icon: 'Award',
+    title: 'Donation Platform / Menassat Al-Khair',
+    description: 'An Arabic-first full-stack donation platform connecting donors, charities, and people in need. Features item donations, charity verification workflows, role-based dashboards, and responsive UI design.',
+    technologies: ['React 19', 'Vite', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+    github: 'https://github.com/Mohammed55676/',
+    live_demo: '#',
+    category: 'Full-Stack Web App',
+    gradient: 'from-green-500 to-emerald-500',
     order: 0,
   },
   {
-    icon: 'Database',
-    title: 'Population Analysis with MySQL',
-    description: 'Demographic and urbanization insights using advanced SQL queries. Analyzed large-scale population datasets to extract meaningful insights about demographic trends and urbanization patterns.',
-    technologies: ['MySQL', 'SQL', 'Data Analysis', 'Database Design'],
-    github: 'https://github.com/SarbajitPbappy/Project-ONE',
-    category: 'Data Analysis',
-    gradient: 'from-purple-500 to-pink-500',
-    order: 1,
-  },
-  {
-    icon: 'Mail',
-    title: 'Email Spam Classification',
-    description: 'ML models for spam filtering using Random Forest and Decision Trees. Built and compared multiple machine learning algorithms to accurately classify emails as spam or legitimate messages.',
-    technologies: ['Random Forest', 'Decision Trees', 'NLP', 'Classification'],
-    github: 'https://github.com/SarbajitPbappy/Project-NOT',
-    category: 'Machine Learning',
-    gradient: 'from-green-500 to-emerald-500',
-    order: 2,
-  },
-  {
     icon: 'Code',
-    title: 'Medical Image Classification Projects',
-    description: 'Deep learning models for disease detection from medical images. Includes projects on skin disease classification, medical image analysis, and explainable AI implementations.',
-    technologies: ['Deep Learning', 'CNN', 'Medical Imaging', 'TensorFlow', 'Keras'],
-    github: 'https://github.com/SarbajitPbappy/Lyme-Disease',
-    category: 'Deep Learning',
-    gradient: 'from-red-500 to-rose-500',
-    order: 3,
-  },
-  {
-    icon: 'Split',
-    title: 'Splitter – Expense Splitting & Personal Finance Tracker',
-    description: 'Academic project developed using Flutter (Cupertino) and Firebase for group expense splitting and personal finance tracking. Includes trip and bachelor mess management, optimized settlement algorithms, real-time synchronization, analytics dashboards, meal tracking, and automated PDF report generation.',
-    technologies: [
-      'Flutter',
-      'Dart',
-      'Firebase',
-      'Cloud Firestore',
-      'Firebase Auth',
-      'Cupertino UI',
-      'Provider',
-      'GoRouter',
-      'PDF Generation'
-    ],
-    github: 'https://github.com/SarbajitPbappy/MAD-Project',
-    category: 'Academic Project',
-    gradient: 'from-emerald-500 to-teal-500',
-    order: 4,
+    title: 'Skyline Glass Website & Quote Funnel',
+    description: 'A 6-page responsive site for a custom glass company in Durham, NC. Features modular CSS architecture (shared design tokens + page styles) with zero JS/framework bloat, plus a multi-field quote funnel that generated 500+ projects.',
+    technologies: ['HTML5', 'Modular CSS', 'JavaScript', 'Responsive Design', 'Lead Gen'],
+    github: 'https://github.com/Mohammed55676/',
+    live_demo: '#',
+    category: 'Client Web Project',
+    gradient: 'from-blue-500 to-cyan-500',
+    order: 1,
   },
 ]
 
@@ -168,17 +131,30 @@ export default function Projects() {
                 ))}
               </div>
 
-              {project.github && (
-                <div className="flex gap-2 mt-auto pt-4 border-t border-gray-100">
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-sm"
-                  >
-                    <Github className="w-5 h-5" />
-                    <span>View on GitHub</span>
-                  </Link>
+              {(project.github || project.live_demo) && (
+                <div className="flex flex-wrap gap-4 mt-auto pt-4 border-t border-gray-100">
+                  {project.github && (
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-sm"
+                    >
+                      <Github className="w-5 h-5" />
+                      <span>View Code</span>
+                    </Link>
+                  )}
+                  {project.live_demo && project.live_demo !== '#' && (
+                    <Link
+                      href={project.live_demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold text-sm"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                      <span>Live Demo</span>
+                    </Link>
+                  )}
                 </div>
               )}
             </motion.div>
@@ -187,7 +163,7 @@ export default function Projects() {
 
         <motion.div {...fadeIn} className="mt-12 text-center">
           <Link
-            href="https://github.com/SarbajitPbappy"
+            href="https://github.com/Mohammed55676/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-gradient-to-r from-primary-600 to-primary-500 text-white px-8 py-4 rounded-xl hover:from-primary-700 hover:to-primary-600 transition-all font-semibold shadow-lg"

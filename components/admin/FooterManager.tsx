@@ -34,11 +34,11 @@ export default function FooterManager() {
 
   const handleCreate = () => {
     setFormData({
-      name: 'Sarbajit Paul Bappy',
+      name: 'Mohammed Hamdi',
       description: '',
       quick_links: [],
       social_links: [],
-      copyright_text: `© ${new Date().getFullYear()} Sarbajit Paul Bappy. All rights reserved.`,
+      copyright_text: `© ${new Date().getFullYear()} Mohammed Hamdi. All rights reserved.`,
     })
     setShowForm(true)
   }

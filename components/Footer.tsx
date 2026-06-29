@@ -8,16 +8,15 @@ import { iconMap } from '@/lib/icons'
 
 // Fallback footer
 const fallbackFooter: Footer = {
-  name: 'Sarbajit Paul Bappy',
-  description: 'Final-year Computer Science student passionate about Deep Learning, Computer Vision, and Explainable AI',
-  quick_links: ['About', 'Education', 'Research', 'Publications', 'Projects', 'Contact'],
+  name: 'Mohammed Hamdi',
+  description: 'Software Engineering Student & Full-Stack Developer based in Amman, Jordan. Building practical web applications with clean interfaces.',
+  quick_links: ['About', 'Education', 'Skills', 'Experience', 'Projects', 'Contact'],
   social_links: [
-    { icon: 'Github', href: 'https://github.com/SarbajitPbappy', label: 'GitHub' },
-    { icon: 'Linkedin', href: 'https://linkedin.com/in/iamsarbajit', label: 'LinkedIn' },
-    { icon: 'Globe', href: 'https://orcid.org/0009-0006-7551-0461', label: 'ORCID' },
-    { icon: 'Mail', href: 'mailto:sarbajit2001@gmail.com', label: 'Email' },
+    { icon: 'Github', href: 'https://github.com/Mohammed55676/', label: 'GitHub' },
+    { icon: 'Linkedin', href: 'https://www.linkedin.com/in/eng-mohammed-hamdi/', label: 'LinkedIn' },
+    { icon: 'Mail', href: 'mailto:mohaa34356@gmail.com', label: 'Email' },
   ],
-  copyright_text: `© ${new Date().getFullYear()} Sarbajit Paul Bappy. All rights reserved.`,
+  copyright_text: `© ${new Date().getFullYear()} Mohammed Hamdi. All rights reserved.`,
 }
 
 export default function Footer() {

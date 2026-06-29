@@ -7,14 +7,13 @@ import Link from 'next/link'
 
 // Static navbar configuration
 const navbarConfig = {
-  name: 'Sarbajit Paul Bappy',
+  name: 'Mohammed Hamdi',
   nav_items: [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Work Experience', href: '#experience' },
-    { name: 'Research', href: '#research' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ],

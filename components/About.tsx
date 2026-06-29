@@ -14,25 +14,25 @@ const fadeIn = {
 // Fallback data
 const fallbackAbout: About = {
   title: 'About Me',
-  description: 'Final-year Computer Science and Engineering student at Daffodil International University with an Erasmus+ exchange at Mälardalen University, Sweden. I focus on deep learning, computer vision, and explainable AI for healthcare and agriculture, pairing academic rigor with clear communication.',
+  description: 'I am Mohammed Hamdi, a software engineering student based in Amman, Jordan. I enjoy building web applications that are clear, useful, and easy to use. My strongest work is in React-based interfaces, application structure, and turning ideas into working products.',
   values: [
     {
-      title: 'Research-Driven',
-      description: 'I connect theory with practice, validating ideas through experiments, benchmarks, and peer feedback.',
+      title: 'User-Focused Design',
+      description: 'Building practical, accessible interfaces that solve real-world problems smoothly and intuitively.',
     },
     {
-      title: 'Systems Thinker',
-      description: 'I design end-to-end solutions: data readiness, modeling, evaluation, deployment, and monitoring.',
+      title: 'Structured Architecture',
+      description: 'Organizing code flow into clear roles, clean APIs, and maintainable full-stack systems.',
     },
     {
-      title: 'Community-Focused',
-      description: 'Teaching, mentoring, and leading IEEE initiatives keep me grounded and collaborative.',
+      title: 'Problem Solving',
+      description: 'Digitizing scattered processes and connecting people with useful services through structured platforms.',
     },
   ],
   quick_facts: [
-    { label: 'Specialties', value: 'Deep Learning, Computer Vision, XAI' },
-    { label: 'Stack', value: 'PyTorch, TensorFlow, Python, SQL' },
-    { label: 'Current Goal', value: 'Graduate studies in AI/ML research' },
+    { label: 'Specialties', value: 'React, Full-Stack Web Development, UI/UX' },
+    { label: 'Tech Stack', value: 'React, Node.js, Express, Tailwind CSS, MongoDB/PostgreSQL' },
+    { label: 'Main Project', value: 'Donation Platform / Menassat Al-Khair' },
   ],
   order: 0,
 }
@@ -98,7 +98,7 @@ export default function About() {
             <div className="frosted-card p-6">
               <h3 className="text-2xl font-bold text-gray-900 mb-3">What drives me</h3>
               <p className="text-gray-700 leading-relaxed">
-                I love translating complex ideas into accessible, reliable systems. Whether mentoring students or iterating on research, I prioritize clarity, reproducibility, and meaningful impact.
+                I love turning ideas into practical, working products. Whether building responsive marketing sites or architecting full-stack donation platforms, I prioritize clean logic, great user experience, and real-world impact.
               </p>
               {aboutData.quick_facts && aboutData.quick_facts.length > 0 && (
                 <>

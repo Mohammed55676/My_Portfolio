@@ -15,19 +15,30 @@ const fadeIn = {
 
 // Category icons and gradients mapping
 const categoryConfig: Record<string, { icon: React.ComponentType<any>, gradient: string }> = {
+  'Frontend': { icon: Code, gradient: 'from-blue-500 to-cyan-500' },
+  'Backend': { icon: Cloud, gradient: 'from-purple-500 to-indigo-500' },
+  'Databases': { icon: Database, gradient: 'from-green-500 to-emerald-500' },
+  'Tools & Utilities': { icon: Wrench, gradient: 'from-amber-500 to-orange-500' },
   'Programming Languages': { icon: Code, gradient: 'from-blue-500 to-cyan-500' },
-  'Machine Learning & AI': { icon: Brain, gradient: 'from-purple-500 to-indigo-500' },
-  'Computer Vision & Image Processing': { icon: Brain, gradient: 'from-blue-500 to-cyan-500' },
-  'Deep Learning Frameworks': { icon: Brain, gradient: 'from-purple-500 to-pink-500' },
-  'Data Science & Analysis': { icon: Database, gradient: 'from-green-500 to-emerald-500' },
-  'Explainable AI': { icon: Brain, gradient: 'from-amber-500 to-orange-500' },
-  'Mobile Development': { icon: Smartphone, gradient: 'from-emerald-500 to-teal-500' },
-  'Backend & Cloud': { icon: Cloud, gradient: 'from-sky-500 to-blue-500' },
-  'Databases': { icon: Database, gradient: 'from-indigo-500 to-purple-500' },
   'Software Engineering': { icon: Code, gradient: 'from-rose-500 to-pink-500' },
-  'Tools & Utilities': { icon: Wrench, gradient: 'from-gray-500 to-gray-600' },
-  'Domain Expertise': { icon: Brain, gradient: 'from-red-500 to-rose-500' },
 }
+
+const fallbackSkills: Skill[] = [
+  { name: 'React', category: 'Frontend', level: 'Advanced', order: 0 },
+  { name: 'JavaScript', category: 'Frontend', level: 'Advanced', order: 1 },
+  { name: 'HTML', category: 'Frontend', level: 'Advanced', order: 2 },
+  { name: 'CSS', category: 'Frontend', level: 'Advanced', order: 3 },
+  { name: 'Tailwind CSS', category: 'Frontend', level: 'Advanced', order: 4 },
+  { name: 'Node.js', category: 'Backend', level: 'Intermediate', order: 5 },
+  { name: 'Express.js', category: 'Backend', level: 'Intermediate', order: 6 },
+  { name: 'REST APIs', category: 'Backend', level: 'Advanced', order: 7 },
+  { name: 'Python', category: 'Backend', level: 'Intermediate', order: 8 },
+  { name: 'MongoDB', category: 'Databases', level: 'Intermediate', order: 9 },
+  { name: 'PostgreSQL', category: 'Databases', level: 'Intermediate', order: 10 },
+  { name: 'Git & GitHub', category: 'Tools & Utilities', level: 'Advanced', order: 11 },
+  { name: 'Vite', category: 'Tools & Utilities', level: 'Intermediate', order: 12 },
+  { name: 'Linux', category: 'Tools & Utilities', level: 'Intermediate', order: 13 },
+]
 
 export default function Skills() {
   const [skills, setSkills] = useState<Skill[]>([])
@@ -50,9 +61,10 @@ export default function Skills() {
     try {
       const res = await fetch('/api/skills')
       const data = await res.json()
-      setSkills(data || [])
+      setSkills(data && data.length > 0 ? data : fallbackSkills)
     } catch (error) {
       console.error('Error fetching skills:', error)
+      setSkills(fallbackSkills)
     } finally {
       setLoading(false)
     }

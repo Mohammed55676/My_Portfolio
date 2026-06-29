@@ -30,11 +30,10 @@ const fadeIn = {
 
 // Fallback contact info
 const fallbackContactInfo = [
-  { icon: 'Mail', text: 'bappy15-6155@s.diu.edu.bd', href: 'mailto:bappy15-6155@s.diu.edu.bd', gradient: 'from-blue-500 to-cyan-500', is_external: false },
-  { icon: 'Mail', text: 'sarbajit2001@gmail.com', href: 'mailto:sarbajit2001@gmail.com', gradient: 'from-purple-500 to-pink-500', is_external: false },
-  { icon: 'Phone', text: '+880 1315352270', href: 'tel:+8801315352270', gradient: 'from-green-500 to-emerald-500', is_external: false },
-  { icon: 'Github', text: 'github.com/SarbajitPbappy', href: 'https://github.com/SarbajitPbappy', gradient: 'from-gray-700 to-gray-900', is_external: true },
-  { icon: 'Linkedin', text: 'linkedin.com/in/iamsarbajit', href: 'https://linkedin.com/in/iamsarbajit', gradient: 'from-blue-600 to-blue-800', is_external: true },
+  { icon: 'Mail', text: 'mohaa34356@gmail.com', href: 'mailto:mohaa34356@gmail.com', gradient: 'from-blue-500 to-cyan-500', is_external: false },
+  { icon: 'Phone', text: '+962 77 653 2286', href: 'tel:+962776532286', gradient: 'from-green-500 to-emerald-500', is_external: false },
+  { icon: 'Github', text: 'github.com/Mohammed55676', href: 'https://github.com/Mohammed55676/', gradient: 'from-gray-700 to-gray-900', is_external: true },
+  { icon: 'Linkedin', text: 'linkedin.com/in/eng-mohammed-hamdi', href: 'https://www.linkedin.com/in/eng-mohammed-hamdi/', gradient: 'from-blue-600 to-blue-800', is_external: true },
 ]
 
 export default function Contact() {

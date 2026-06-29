@@ -2,7 +2,6 @@ import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Education from '@/components/Education'
 import WorkExperience from '@/components/WorkExperience'
-import ResearchAndPublications from '@/components/ResearchAndPublications'
 import Projects from '@/components/Projects'
 import Skills from '@/components/Skills'
 import Contact from '@/components/Contact'
@@ -15,7 +14,6 @@ export default function Home() {
       <Education />
       <Skills />
       <WorkExperience />
-      <ResearchAndPublications />
       <Projects />
       <Contact />
     </div>

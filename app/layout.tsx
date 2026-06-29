@@ -6,9 +6,9 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 import ThemeSwitcher from '@/components/ThemeSwitcher'
 
 export const metadata: Metadata = {
-  title: 'Sarbajit Paul Bappy | AI/ML Researcher',
-  description: 'AI/ML Researcher specializing in Federated Learning and Medical Image Classification',
-  keywords: ['AI', 'Machine Learning', 'Federated Learning', 'Medical Image Classification', 'Research'],
+  title: 'Mohammed Hamdi | Software Engineering & Full-Stack Developer',
+  description: 'Software Engineering Student & Full-Stack Developer based in Amman, Jordan. Specializing in React applications and practical full-stack platforms.',
+  keywords: ['Software Engineering', 'Full-Stack Developer', 'React', 'Node.js', 'Web Development', 'Amman', 'Jordan'],
 }
 
 export default function RootLayout({

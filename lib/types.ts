@@ -52,6 +52,7 @@ export interface Project {
   description: string
   technologies: string[]
   github?: string
+  live_demo?: string
   category: string
   gradient: string
   order: number

@@ -16,17 +16,17 @@ const fadeIn = {
 
 // Fallback data
 const fallbackHero: Hero = {
-  name: 'Sarbajit Paul Bappy',
-  title: 'Final-year CSE Student & Teaching Assistant @ DIU',
-  subtitle: '',
-  description: 'Passionate about Deep Learning, Computer Vision, and Explainable AI for healthcare and agriculture.',
-  email: 'bappy15-6155@s.diu.edu.bd',
-  phone: '+880 1315352270',
-  cv_url: '/Bappy_CV_Official.pdf',
-  github_url: 'https://github.com/SarbajitPbappy',
-  linkedin_url: 'https://linkedin.com/in/iamsarbajit',
+  name: 'Mohammed Hamdi',
+  title: 'Software Engineering Student & Full-Stack Developer',
+  subtitle: 'Based in Amman, Jordan',
+  description: 'I build practical, user-focused web applications with clean interfaces, structured logic, and real-world problem solving.',
+  email: 'mohaa34356@gmail.com',
+  phone: '+962 77 653 2286',
+  cv_url: '#',
+  github_url: 'https://github.com/Mohammed55676/',
+  linkedin_url: 'https://www.linkedin.com/in/eng-mohammed-hamdi/',
   profile_image_url: '/profile.jpg',
-  focus_tags: ['Computer Vision', 'Explainable AI', 'Medical Imaging', 'Agritech'],
+  focus_tags: ['React', 'Full-Stack Development', 'Node.js', 'Tailwind CSS'],
   order: 0,
 }
 
