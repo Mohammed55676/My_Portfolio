@@ -24,9 +24,9 @@ const fallbackHero: Hero = {
   phone: '+962 77 653 2286',
   cv_url: '/cv.pdf',
   github_url: 'https://github.com/Mohammed55676/',
-  linkedin_url: 'https://www.linkedin.com/in/eng-mohammed-hamdi/',
+  linkedin_url: 'https://www.linkedin.com/in/eng-mohammed-hamdi/?locale=en',
   profile_image_url: '/profile.jpg',
-  focus_tags: ['React', 'Full-Stack Development', 'Node.js', 'Tailwind CSS'],
+  focus_tags: ['React', 'Full-Stack Development', 'Software Design', 'Git & Linux'],
   order: 0,
 }
 
@@ -36,13 +36,13 @@ export default function Hero() {
 
   useEffect(() => {
     fetchHero()
-    
+
     // Listen for content updates from admin panel
     const handleUpdate = () => {
       fetchHero()
     }
     window.addEventListener('content-updated', handleUpdate)
-    
+
     return () => {
       window.removeEventListener('content-updated', handleUpdate)
     }
@@ -70,12 +70,16 @@ export default function Hero() {
   }
 
   const rawHero = hero || fallbackHero
+  const isDefaultTags = !rawHero.focus_tags || rawHero.focus_tags.length === 0 || (rawHero.focus_tags.includes('Node.js') && rawHero.focus_tags.includes('Tailwind CSS'))
   const heroData = {
     ...rawHero,
-    cv_url: rawHero.cv_url && rawHero.cv_url !== '#' ? rawHero.cv_url : '/cv.pdf',
+    focus_tags: isDefaultTags ? ['React', 'Full-Stack Development', 'Software Design', 'Git & Linux'] : rawHero.focus_tags,
   }
+  // Resolve the CV link: ignore empty/placeholder values and fall back to the
+  // bundled /cv.pdf so the button never downloads the current HTML page.
+  const cvUrl = heroData.cv_url && heroData.cv_url !== '#' ? heroData.cv_url : '/cv.pdf'
   return (
-    <section id="home" className="min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-primary-50 pt-16 pb-20 relative overflow-hidden">
+    <section id="home" className="min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-primary-50 pt-16 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -119,7 +123,7 @@ export default function Hero() {
                 </h1>
               </motion.div>
             </div>
-            
+
             <motion.div {...fadeIn} transition={{ ...fadeIn.transition, delay: 0.1 }}>
               {heroData.title && (
                 <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-white/70 border border-primary-100 shadow-sm mb-4">
@@ -138,7 +142,7 @@ export default function Hero() {
 
               <div className="space-y-2 text-gray-600 mb-6">
                 {heroData.email && (
-                  <motion.div 
+                  <motion.div
                     className="flex items-center gap-2"
                     whileHover={{ x: 7 }}
                   >
@@ -147,7 +151,7 @@ export default function Hero() {
                   </motion.div>
                 )}
                 {heroData.phone && (
-                  <motion.div 
+                  <motion.div
                     className="flex items-center gap-2"
                     whileHover={{ x: 5 }}
                   >
@@ -169,24 +173,20 @@ export default function Hero() {
             )}
 
             <motion.div {...fadeIn} transition={{ ...fadeIn.transition, delay: 0.3 }} className="grid sm:grid-cols-3 gap-4">
-            
+
             </motion.div>
 
             <motion.div {...fadeIn} transition={{ ...fadeIn.transition, delay: 0.2 }} className="flex flex-wrap gap-4">
-              {heroData.cv_url && (
-                <motion.a
-                  href={heroData.cv_url}
-                  download="Mohammed_Hamdi_CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors font-medium shadow-lg"
-                >
-                  <Download size={20} />
-                  Download CV
-                </motion.a>
-              )}
+              <motion.a
+                href={cvUrl}
+                download="Mohammed-Hamdi-CV.pdf"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors font-medium shadow-lg"
+              >
+                <Download size={20} />
+                Download CV
+              </motion.a>
               {heroData.github_url && (
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Link
@@ -248,25 +248,25 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-5 left-1/2 transform -translate-x-1/2 z-10"
-      >
-        <motion.a
-          href="#about"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center text-gray-600 hover:text-primary-600 transition-colors"
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         >
-          <span className="text-sm mb-2">Scroll to explore</span>
-          <ArrowDown className="w-6 h-6" />
-        </motion.a>
-      </motion.div>
+          <motion.a
+            href="#about"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="flex flex-col items-center text-gray-600 hover:text-primary-600 transition-colors"
+          >
+            <span className="text-sm mb-2">Scroll to explore</span>
+            <ArrowDown className="w-6 h-6" />
+          </motion.a>
+        </motion.div>
+      </div>
     </section>
   )
 }

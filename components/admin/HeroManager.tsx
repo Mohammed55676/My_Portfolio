@@ -41,7 +41,7 @@ export default function HeroManager() {
       phone: '',
       cv_url: '/cv.pdf',
       github_url: 'https://github.com/Mohammed55676/',
-      linkedin_url: 'https://www.linkedin.com/in/eng-mohammed-hamdi/',
+      linkedin_url: 'https://www.linkedin.com/in/eng-mohammed-hamdi/?locale=en',
       profile_image_url: '/profile.jpg',
       focus_tags: [],
       order: 0,

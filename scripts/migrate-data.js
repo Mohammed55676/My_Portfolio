@@ -180,9 +180,9 @@ const heroData = {
   phone: '+962 77 653 2286',
   cv_url: '/cv.pdf',
   github_url: 'https://github.com/Mohammed55676/',
-  linkedin_url: 'https://www.linkedin.com/in/eng-mohammed-hamdi/',
+  linkedin_url: 'https://www.linkedin.com/in/eng-mohammed-hamdi/?locale=en',
   profile_image_url: '/profile.jpg',
-  focus_tags: ['React', 'Full-Stack Development', 'Node.js', 'Tailwind CSS'],
+  focus_tags: ['React', 'Full-Stack Development', 'Software Design', 'Git & Linux'],
   order: 0,
 }
 
@@ -191,7 +191,7 @@ const contactInfoData = [
   { icon: 'Mail', text: 'mohaa34356@gmail.com', href: 'mailto:mohaa34356@gmail.com', gradient: 'from-blue-500 to-cyan-500', is_external: false, order: 0 },
   { icon: 'Phone', text: '+962 77 653 2286', href: 'tel:+962776532286', gradient: 'from-green-500 to-emerald-500', is_external: false, order: 1 },
   { icon: 'Github', text: 'github.com/Mohammed55676', href: 'https://github.com/Mohammed55676/', gradient: 'from-gray-700 to-gray-900', is_external: true, order: 2 },
-  { icon: 'Linkedin', text: 'linkedin.com/in/eng-mohammed-hamdi', href: 'https://www.linkedin.com/in/eng-mohammed-hamdi/', gradient: 'from-blue-600 to-blue-800', is_external: true, order: 3 },
+  { icon: 'Linkedin', text: 'linkedin.com/in/eng-mohammed-hamdi', href: 'https://www.linkedin.com/in/eng-mohammed-hamdi/?locale=en', gradient: 'from-blue-600 to-blue-800', is_external: true, order: 3 },
 ]
 
 // Footer
@@ -202,7 +202,7 @@ const footerData = {
   quick_links: ['About', 'Education', 'Skills', 'Experience', 'Projects', 'Contact'],
   social_links: [
     { icon: 'Github', href: 'https://github.com/Mohammed55676/', label: 'GitHub' },
-    { icon: 'Linkedin', href: 'https://www.linkedin.com/in/eng-mohammed-hamdi/', label: 'LinkedIn' },
+    { icon: 'Linkedin', href: 'https://www.linkedin.com/in/eng-mohammed-hamdi/?locale=en', label: 'LinkedIn' },
     { icon: 'Mail', href: 'mailto:mohaa34356@gmail.com', label: 'Email' },
   ],
   copyright_text: `© ${new Date().getFullYear()} Mohammed Hamdi. All rights reserved.`,
