@@ -13,7 +13,7 @@ const fallbackFooter: Footer = {
   quick_links: ['About', 'Education', 'Skills', 'Experience', 'Projects', 'Contact'],
   social_links: [
     { icon: 'Github', href: 'https://github.com/Mohammed55676/', label: 'GitHub' },
-    { icon: 'Linkedin', href: 'https://www.linkedin.com/in/eng-mohammed-hamdi/', label: 'LinkedIn' },
+    { icon: 'Linkedin', href: 'https://www.linkedin.com/in/eng-mohammed-hamdi/?locale=en', label: 'LinkedIn' },
     { icon: 'Mail', href: 'mailto:mohaa34356@gmail.com', label: 'Email' },
   ],
   copyright_text: `© ${new Date().getFullYear()} Mohammed Hamdi. All rights reserved.`,
@@ -25,12 +25,12 @@ export default function Footer() {
 
   useEffect(() => {
     fetchFooter()
-    
+
     const handleUpdate = () => {
       fetchFooter()
     }
     window.addEventListener('content-updated', handleUpdate)
-    
+
     return () => {
       window.removeEventListener('content-updated', handleUpdate)
     }
@@ -76,7 +76,7 @@ export default function Footer() {
               </p>
             )}
           </motion.div>
-          
+
           {footerData.quick_links && footerData.quick_links.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -105,7 +105,7 @@ export default function Footer() {
               </ul>
             </motion.div>
           )}
-          
+
           {footerData.social_links && footerData.social_links.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -134,7 +134,7 @@ export default function Footer() {
             </motion.div>
           )}
         </div>
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

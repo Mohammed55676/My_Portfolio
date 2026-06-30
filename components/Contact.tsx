@@ -32,7 +32,7 @@ const fallbackContactInfo = [
   { icon: 'Mail', text: 'mohaa34356@gmail.com', href: 'mailto:mohaa34356@gmail.com', gradient: 'from-blue-500 to-cyan-500', is_external: false },
   { icon: 'Phone', text: '+962 77 653 2286', href: 'tel:+962776532286', gradient: 'from-green-500 to-emerald-500', is_external: false },
   { icon: 'Github', text: 'github.com/Mohammed55676', href: 'https://github.com/Mohammed55676/', gradient: 'from-gray-700 to-gray-900', is_external: true },
-  { icon: 'Linkedin', text: 'linkedin.com/in/eng-mohammed-hamdi', href: 'https://www.linkedin.com/in/eng-mohammed-hamdi/', gradient: 'from-blue-600 to-blue-800', is_external: true },
+  { icon: 'Linkedin', text: 'linkedin.com/in/eng-mohammed-hamdi', href: 'https://www.linkedin.com/in/eng-mohammed-hamdi/?locale=en', gradient: 'from-blue-600 to-blue-800', is_external: true },
 ]
 
 export default function Contact() {
@@ -41,12 +41,12 @@ export default function Contact() {
 
   useEffect(() => {
     fetchContactInfo()
-    
+
     const handleUpdate = () => {
       fetchContactInfo()
     }
     window.addEventListener('content-updated', handleUpdate)
-    
+
     return () => {
       window.removeEventListener('content-updated', handleUpdate)
     }
@@ -90,9 +90,9 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       })
-      
+
       const result = await response.json()
-      
+
       if (response.ok && result.success) {
         Swal.fire({
           icon: 'success',
@@ -217,7 +217,7 @@ export default function Contact() {
                     placeholder="Your name"
                   />
                   {errors.name && (
-                    <motion.p 
+                    <motion.p
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="text-red-500 text-sm mt-1"
@@ -239,7 +239,7 @@ export default function Contact() {
                     placeholder="your.email@example.com"
                   />
                   {errors.email && (
-                    <motion.p 
+                    <motion.p
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="text-red-500 text-sm mt-1"
@@ -261,7 +261,7 @@ export default function Contact() {
                     placeholder="What's this about?"
                   />
                   {errors.subject && (
-                    <motion.p 
+                    <motion.p
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="text-red-500 text-sm mt-1"
@@ -283,7 +283,7 @@ export default function Contact() {
                     placeholder="Tell me about your project or inquiry..."
                   />
                   {errors.message && (
-                    <motion.p 
+                    <motion.p
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="text-red-500 text-sm mt-1"

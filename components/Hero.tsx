@@ -69,7 +69,11 @@ export default function Hero() {
     )
   }
 
-  const heroData = hero || fallbackHero
+  const rawHero = hero || fallbackHero
+  const heroData = {
+    ...rawHero,
+    cv_url: rawHero.cv_url && rawHero.cv_url !== '#' ? rawHero.cv_url : '/cv.pdf',
+  }
   return (
     <section id="home" className="min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-primary-50 pt-16 pb-20 relative overflow-hidden">
       {/* Animated background elements */}
@@ -172,7 +176,9 @@ export default function Hero() {
               {heroData.cv_url && (
                 <motion.a
                   href={heroData.cv_url}
-                  download
+                  download="Mohammed_Hamdi_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors font-medium shadow-lg"
