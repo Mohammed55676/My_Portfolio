@@ -787,14 +787,37 @@
   border-color: rgb(var(--color-border)) !important;
 }
 
-/* 5. Pills / Badges */
+/* 5. Pills / Badges & Primary Light Boxes */
 .dark .pill {
   background-color: rgb(var(--color-surface-elevated)) !important;
   color: rgb(var(--color-text)) !important;
   border-color: rgb(var(--color-border)) !important;
 }
 
-/* 6. Form Inputs & Textareas */
+.dark [class*="bg-primary-50"],
+.dark [class*="bg-primary-100"] {
+  background-color: rgb(var(--color-primary) / 0.15) !important;
+  color: rgb(var(--color-primary)) !important;
+  border-color: rgb(var(--color-primary) / 0.3) !important;
+}
+
+/* 6. High-Contrast Buttons (Primary & Secondary) */
+.dark .btn-primary,
+.dark [class*="bg-primary-600"],
+.dark [class*="from-primary-600"] {
+  color: rgb(var(--color-background)) !important;
+  font-weight: 700 !important;
+  border: none !important;
+}
+
+.dark .btn-secondary,
+.dark [class*="border-gray-"] {
+  border-color: rgb(var(--color-border)) !important;
+  color: rgb(var(--color-text)) !important;
+  background-color: transparent !important;
+}
+
+/* 7. Form Inputs & Textareas */
 .dark input,
 .dark textarea,
 .dark select {
@@ -808,7 +831,7 @@
   color: rgb(var(--color-text-muted)) !important;
 }
 
-/* 7. Typography (Headings, Paragraphs, Spans) */
+/* 8. Typography (Headings, Paragraphs, Primary Spans) */
 .dark h1:not(.gradient-text),
 .dark h2:not(.gradient-text),
 .dark h3:not(.gradient-text),
@@ -822,6 +845,10 @@
 .dark .text-zinc-900:not(.gradient-text),
 .dark .text-zinc-800:not(.gradient-text) {
   color: rgb(var(--color-text)) !important;
+}
+
+.dark [class*="text-primary-"]:not([class*="bg-"]):not(.btn-primary) {
+  color: rgb(var(--color-primary)) !important;
 }
 
 .dark p:not([class*="text-primary-"]):not(.text-white):not(.text-red-500),
