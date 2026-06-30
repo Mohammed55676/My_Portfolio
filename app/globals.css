@@ -748,3 +748,93 @@
     --color-text: 248 250 252;
   }
 }
+
+/* ============================================
+   DARK MODE AUTOMATIC OVERRIDES FOR ALL COMPONENTS
+   ============================================ */
+
+/* 1. Sections and Main Structure */
+.dark section,
+.dark main,
+.dark .section-container,
+.dark [class*="bg-gradient-to-"] {
+  background: transparent !important;
+}
+
+/* 2. Navigation & Footer */
+.dark nav {
+  background-color: rgb(var(--color-surface) / 0.92) !important;
+  border-bottom: 1px solid rgb(var(--color-border) / 0.5) !important;
+}
+
+.dark footer {
+  background-color: rgb(var(--color-surface) / 0.4) !important;
+  border-top: 1px solid rgb(var(--color-border) / 0.5) !important;
+}
+
+/* 3. Cards & Panels */
+.dark .frosted-card,
+.dark .card,
+.dark [class*="bg-white/"] {
+  background-color: rgb(var(--color-surface) / 0.85) !important;
+  border-color: rgb(var(--color-border)) !important;
+}
+
+/* 4. Small Boxes & Items */
+.dark .bg-gray-50,
+.dark .bg-white {
+  background-color: rgb(var(--color-surface-elevated)) !important;
+  border-color: rgb(var(--color-border)) !important;
+}
+
+/* 5. Pills / Badges */
+.dark .pill {
+  background-color: rgb(var(--color-surface-elevated)) !important;
+  color: rgb(var(--color-text)) !important;
+  border-color: rgb(var(--color-border)) !important;
+}
+
+/* 6. Form Inputs & Textareas */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: rgb(var(--color-surface-elevated)) !important;
+  color: rgb(var(--color-text)) !important;
+  border-color: rgb(var(--color-border)) !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: rgb(var(--color-text-muted)) !important;
+}
+
+/* 7. Typography (Headings, Paragraphs, Spans) */
+.dark h1:not(.gradient-text),
+.dark h2:not(.gradient-text),
+.dark h3:not(.gradient-text),
+.dark h4:not(.gradient-text),
+.dark h5:not(.gradient-text),
+.dark h6:not(.gradient-text),
+.dark .text-gray-900:not(.gradient-text),
+.dark .text-gray-800:not(.gradient-text),
+.dark .text-slate-900:not(.gradient-text),
+.dark .text-slate-800:not(.gradient-text),
+.dark .text-zinc-900:not(.gradient-text),
+.dark .text-zinc-800:not(.gradient-text) {
+  color: rgb(var(--color-text)) !important;
+}
+
+.dark p:not([class*="text-primary-"]):not(.text-white):not(.text-red-500),
+.dark span:not(.gradient-text):not([class*="text-primary-"]):not(.text-white):not([class*="bg-"]),
+.dark label,
+.dark .text-gray-700,
+.dark .text-gray-600,
+.dark .text-gray-500,
+.dark .text-slate-700,
+.dark .text-slate-600,
+.dark .text-slate-500,
+.dark .text-zinc-700,
+.dark .text-zinc-600,
+.dark .text-zinc-500 {
+  color: rgb(var(--color-text-muted)) !important;
+}
