@@ -8,7 +8,6 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import Link from 'next/link'
-import Swal from 'sweetalert2'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -84,6 +83,7 @@ export default function Contact() {
   }
 
   const onSubmit = async (data: ContactFormData) => {
+    const Swal = (await import('sweetalert2')).default
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',

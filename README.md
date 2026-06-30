@@ -64,7 +64,7 @@ TO_EMAIL=your-email@example.com
 
 1. Go to your Supabase project dashboard
 2. Navigate to **SQL Editor**
-3. Open `supabase_schema_complete.sql` from this project
+3. Open `supabase_schema_final.sql` from this project
 4. Copy all the SQL code
 5. Paste into Supabase SQL Editor
 6. Click **Run** (or press Ctrl+Enter)
@@ -145,7 +145,7 @@ TO_EMAIL=your-email@example.com (optional)
 After deployment, make sure your Supabase database is set up:
 
 1. Go to Supabase Dashboard → **SQL Editor**
-2. Run `supabase_schema_complete.sql` (if not done already)
+2. Run `supabase_schema_final.sql` (if not done already)
 3. Run migration script locally or add data through admin panel
 
 ## 🔐 Accessing Admin Panel
@@ -221,14 +221,14 @@ portfolio/
 │   └── supabase.ts       # Supabase client
 ├── scripts/
 │   └── migrate-data.js   # Data migration script
-└── supabase_schema_complete.sql  # Database schema
+└── supabase_schema_final.sql  # Database schema
 ```
 
 ## 🐛 Troubleshooting
 
 ### "Table doesn't exist" Error
 
-**Solution:** Run `supabase_schema_complete.sql` in Supabase SQL Editor
+**Solution:** Run `supabase_schema_final.sql` in Supabase SQL Editor
 
 ### "Icon not showing"
 
@@ -336,7 +336,7 @@ All components use Tailwind CSS. Modify component files in `components/` directo
 
 - [ ] Code pushed to GitHub
 - [ ] Supabase project created
-- [ ] Database schema run (`supabase_schema_complete.sql`)
+- [ ] Database schema run (`supabase_schema_final.sql`)
 - [ ] Environment variables set in Vercel
 - [ ] Project imported to Vercel
 - [ ] Build successful

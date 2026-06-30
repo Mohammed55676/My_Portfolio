@@ -33,7 +33,7 @@ Add these variables:
 ```env
 RESEND_API_KEY=re_your_api_key_here
 FROM_EMAIL=onboarding@resend.dev
-TO_EMAIL=sarbajit2001@gmail.com
+TO_EMAIL=mohaa34356@gmail.com
 ```
 
 **Important Notes:**

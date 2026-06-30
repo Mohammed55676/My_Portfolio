@@ -1,12 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY ?? '')
-
 // Email validation helper
 function isValidEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   return emailRegex.test(email)
+}
+
+// Escape user input before interpolating into the email HTML
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
 }
 
 export async function POST(request: NextRequest) {
@@ -46,24 +54,30 @@ export async function POST(request: NextRequest) {
     // Send email via Resend
     if (process.env.RESEND_API_KEY) {
       try {
+        // Instantiate lazily so a missing key never crashes the build/module load
+        const resend = new Resend(process.env.RESEND_API_KEY)
+        const safeName = escapeHtml(name)
+        const safeEmail = escapeHtml(email)
+        const safeSubject = escapeHtml(subject)
+        const safeMessage = escapeHtml(message).replace(/\n/g, '<br>')
         const { data, error } = await resend.emails.send({
           from: process.env.FROM_EMAIL || 'Portfolio <onboarding@resend.dev>',
           to: process.env.TO_EMAIL || 'mohaa34356@gmail.com',
           reply_to: email,
-          subject: `Portfolio Contact: ${subject}`,
+          subject: `Portfolio Contact: ${safeSubject}`,
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
               <h2 style="color: #0284c7; border-bottom: 2px solid #0284c7; padding-bottom: 10px;">
                 New Contact Form Submission
               </h2>
               <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <p><strong style="color: #1f2937;">Name:</strong> ${name}</p>
-                <p><strong style="color: #1f2937;">Email:</strong> <a href="mailto:${email}" style="color: #0284c7;">${email}</a></p>
-                <p><strong style="color: #1f2937;">Subject:</strong> ${subject}</p>
+                <p><strong style="color: #1f2937;">Name:</strong> ${safeName}</p>
+                <p><strong style="color: #1f2937;">Email:</strong> <a href="mailto:${safeEmail}" style="color: #0284c7;">${safeEmail}</a></p>
+                <p><strong style="color: #1f2937;">Subject:</strong> ${safeSubject}</p>
               </div>
               <div style="background: #ffffff; padding: 20px; border-left: 4px solid #0284c7; margin: 20px 0;">
                 <p><strong style="color: #1f2937;">Message:</strong></p>
-                <p style="color: #4b5563; line-height: 1.6; white-space: pre-wrap;">${message.replace(/\n/g, '<br>')}</p>
+                <p style="color: #4b5563; line-height: 1.6; white-space: pre-wrap;">${safeMessage}</p>
               </div>
               <p style="color: #6b7280; font-size: 12px; margin-top: 30px;">
                 This email was sent from the portfolio contact form at ${new Date().toLocaleString()}

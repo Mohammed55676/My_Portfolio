@@ -1,4 +1,4 @@
-import { supabase } from './supabase'
+import { supabase, supabaseAdmin } from './supabase'
 import type { Education, Publication, WorkExperience, Project, ResearchArea, Course, Hero, About, ContactInfo, Footer, Skill, Settings } from './types'
 
 // Education CRUD
@@ -21,7 +21,7 @@ export async function getEducation() {
 }
 
 export async function createEducation(edu: Omit<Education, 'id' | 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('education')
     .insert(edu)
     .select()
@@ -32,7 +32,7 @@ export async function createEducation(edu: Omit<Education, 'id' | 'created_at' |
 }
 
 export async function updateEducation(id: number, edu: Partial<Education>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('education')
     .update({ ...edu, updated_at: new Date().toISOString() })
     .eq('id', id)
@@ -44,7 +44,7 @@ export async function updateEducation(id: number, edu: Partial<Education>) {
 }
 
 export async function deleteEducation(id: number) {
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('education')
     .delete()
     .eq('id', id)
@@ -54,17 +54,24 @@ export async function deleteEducation(id: number) {
 
 // Publications CRUD
 export async function getPublications() {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    return []
+  }
+
   const { data, error } = await supabase
     .from('publications')
     .select('*')
     .order('order', { ascending: true })
-  
-  if (error) throw error
-  return data as Publication[]
+
+  if (error) {
+    console.error('Supabase error:', error)
+    return []
+  }
+  return (data || []) as Publication[]
 }
 
 export async function createPublication(pub: Omit<Publication, 'id' | 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('publications')
     .insert(pub)
     .select()
@@ -75,7 +82,7 @@ export async function createPublication(pub: Omit<Publication, 'id' | 'created_a
 }
 
 export async function updatePublication(id: number, pub: Partial<Publication>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('publications')
     .update({ ...pub, updated_at: new Date().toISOString() })
     .eq('id', id)
@@ -87,7 +94,7 @@ export async function updatePublication(id: number, pub: Partial<Publication>) {
 }
 
 export async function deletePublication(id: number) {
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('publications')
     .delete()
     .eq('id', id)
@@ -97,17 +104,24 @@ export async function deletePublication(id: number) {
 
 // Work Experience CRUD
 export async function getWorkExperience() {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    return []
+  }
+
   const { data, error } = await supabase
     .from('work_experience')
     .select('*')
     .order('order', { ascending: true })
-  
-  if (error) throw error
-  return data as WorkExperience[]
+
+  if (error) {
+    console.error('Supabase error:', error)
+    return []
+  }
+  return (data || []) as WorkExperience[]
 }
 
 export async function createWorkExperience(work: Omit<WorkExperience, 'id' | 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('work_experience')
     .insert(work)
     .select()
@@ -118,7 +132,7 @@ export async function createWorkExperience(work: Omit<WorkExperience, 'id' | 'cr
 }
 
 export async function updateWorkExperience(id: number, work: Partial<WorkExperience>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('work_experience')
     .update({ ...work, updated_at: new Date().toISOString() })
     .eq('id', id)
@@ -130,7 +144,7 @@ export async function updateWorkExperience(id: number, work: Partial<WorkExperie
 }
 
 export async function deleteWorkExperience(id: number) {
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('work_experience')
     .delete()
     .eq('id', id)
@@ -140,17 +154,24 @@ export async function deleteWorkExperience(id: number) {
 
 // Projects CRUD
 export async function getProjects() {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    return []
+  }
+
   const { data, error } = await supabase
     .from('projects')
     .select('*')
     .order('order', { ascending: true })
-  
-  if (error) throw error
-  return data as Project[]
+
+  if (error) {
+    console.error('Supabase error:', error)
+    return []
+  }
+  return (data || []) as Project[]
 }
 
 export async function createProject(project: Omit<Project, 'id' | 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('projects')
     .insert(project)
     .select()
@@ -161,7 +182,7 @@ export async function createProject(project: Omit<Project, 'id' | 'created_at' |
 }
 
 export async function updateProject(id: number, project: Partial<Project>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('projects')
     .update({ ...project, updated_at: new Date().toISOString() })
     .eq('id', id)
@@ -173,7 +194,7 @@ export async function updateProject(id: number, project: Partial<Project>) {
 }
 
 export async function deleteProject(id: number) {
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('projects')
     .delete()
     .eq('id', id)
@@ -183,17 +204,24 @@ export async function deleteProject(id: number) {
 
 // Research Areas CRUD
 export async function getResearchAreas() {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    return []
+  }
+
   const { data, error } = await supabase
     .from('research_areas')
     .select('*')
     .order('order', { ascending: true })
-  
-  if (error) throw error
-  return data as ResearchArea[]
+
+  if (error) {
+    console.error('Supabase error:', error)
+    return []
+  }
+  return (data || []) as ResearchArea[]
 }
 
 export async function createResearchArea(area: Omit<ResearchArea, 'id' | 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('research_areas')
     .insert(area)
     .select()
@@ -204,7 +232,7 @@ export async function createResearchArea(area: Omit<ResearchArea, 'id' | 'create
 }
 
 export async function updateResearchArea(id: number, area: Partial<ResearchArea>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('research_areas')
     .update({ ...area, updated_at: new Date().toISOString() })
     .eq('id', id)
@@ -216,7 +244,7 @@ export async function updateResearchArea(id: number, area: Partial<ResearchArea>
 }
 
 export async function deleteResearchArea(id: number) {
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('research_areas')
     .delete()
     .eq('id', id)
@@ -268,7 +296,7 @@ export async function createCourse(course: Omit<Course, 'id' | 'created_at' | 'u
     delete insertData.desc
   }
   
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('courses')
     .insert(insertData)
     .select()
@@ -299,7 +327,7 @@ export async function updateCourse(id: number, course: Partial<Course>) {
     delete updateData.desc
   }
   
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('courses')
     .update({ ...updateData, updated_at: new Date().toISOString() })
     .eq('id', id)
@@ -326,7 +354,7 @@ export async function updateCourse(id: number, course: Partial<Course>) {
 }
 
 export async function deleteCourse(id: number) {
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('courses')
     .delete()
     .eq('id', id)
@@ -353,7 +381,7 @@ export async function getSkills() {
 }
 
 export async function createSkill(skill: Omit<Skill, 'id' | 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('skills')
     .insert(skill)
     .select()
@@ -364,7 +392,7 @@ export async function createSkill(skill: Omit<Skill, 'id' | 'created_at' | 'upda
 }
 
 export async function updateSkill(id: number, skill: Partial<Skill>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('skills')
     .update({ ...skill, updated_at: new Date().toISOString() })
     .eq('id', id)
@@ -376,7 +404,7 @@ export async function updateSkill(id: number, skill: Partial<Skill>) {
 }
 
 export async function deleteSkill(id: number) {
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('skills')
     .delete()
     .eq('id', id)
@@ -405,7 +433,7 @@ export async function getHero() {
 }
 
 export async function createHero(hero: Omit<Hero, 'id' | 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('hero')
     .insert(hero)
     .select()
@@ -416,7 +444,7 @@ export async function createHero(hero: Omit<Hero, 'id' | 'created_at' | 'updated
 }
 
 export async function updateHero(id: number, hero: Partial<Hero>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('hero')
     .update({ ...hero, updated_at: new Date().toISOString() })
     .eq('id', id)
@@ -448,7 +476,7 @@ export async function getAbout() {
 }
 
 export async function createAbout(about: Omit<About, 'id' | 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('about')
     .insert(about)
     .select()
@@ -459,7 +487,7 @@ export async function createAbout(about: Omit<About, 'id' | 'created_at' | 'upda
 }
 
 export async function updateAbout(id: number, about: Partial<About>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('about')
     .update({ ...about, updated_at: new Date().toISOString() })
     .eq('id', id)
@@ -489,7 +517,7 @@ export async function getContactInfo() {
 }
 
 export async function createContactInfo(contact: Omit<ContactInfo, 'id' | 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('contact_info')
     .insert(contact)
     .select()
@@ -500,7 +528,7 @@ export async function createContactInfo(contact: Omit<ContactInfo, 'id' | 'creat
 }
 
 export async function updateContactInfo(id: number, contact: Partial<ContactInfo>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('contact_info')
     .update({ ...contact, updated_at: new Date().toISOString() })
     .eq('id', id)
@@ -512,7 +540,7 @@ export async function updateContactInfo(id: number, contact: Partial<ContactInfo
 }
 
 export async function deleteContactInfo(id: number) {
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('contact_info')
     .delete()
     .eq('id', id)
@@ -540,7 +568,7 @@ export async function getFooter() {
 }
 
 export async function createFooter(footer: Omit<Footer, 'id' | 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('footer')
     .insert(footer)
     .select()
@@ -551,7 +579,7 @@ export async function createFooter(footer: Omit<Footer, 'id' | 'created_at' | 'u
 }
 
 export async function updateFooter(id: number, footer: Partial<Footer>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('footer')
     .update({ ...footer, updated_at: new Date().toISOString() })
     .eq('id', id)
@@ -563,7 +591,7 @@ export async function updateFooter(id: number, footer: Partial<Footer>) {
 }
 
 export async function deleteFooter(id: number) {
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from('footer')
     .delete()
     .eq('id', id)
@@ -598,7 +626,7 @@ export async function getSettings() {
 }
 
 export async function createSettings(settings: Omit<Settings, 'id' | 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('settings')
     .insert(settings)
     .select()
@@ -609,7 +637,7 @@ export async function createSettings(settings: Omit<Settings, 'id' | 'created_at
 }
 
 export async function updateSettings(id: number, settings: Partial<Settings>) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('settings')
     .update({ ...settings, updated_at: new Date().toISOString() })
     .eq('id', id)

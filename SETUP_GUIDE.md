@@ -1,4 +1,4 @@
-# 🚀 Complete Setup Guide - Sarbajit Paul Bappy Portfolio
+# 🚀 Complete Setup Guide - Mohammed Hamdi Portfolio
 
 This is a **step-by-step guide** to get your portfolio website up and running in minutes.
 
@@ -64,7 +64,7 @@ For real-time email notifications when someone contacts you:
    ```env
    RESEND_API_KEY=re_your_api_key_here
    FROM_EMAIL=onboarding@resend.dev
-   TO_EMAIL=sarbajit2001@gmail.com
+   TO_EMAIL=mohaa34356@gmail.com
    ```
 
 **Detailed instructions:** See [EMAIL_SETUP.md](./EMAIL_SETUP.md)
@@ -196,7 +196,7 @@ Portfolio/
 │   └── Footer.tsx          # Footer
 ├── public/                # Static assets
 │   ├── profile.jpg        # Profile image
-│   └── Bappy_CV_Official.pdf  # CV
+│   └── cv.pdf             # Your CV (add your own, then set Hero cv_url to /cv.pdf)
 ├── package.json           # Dependencies
 ├── tsconfig.json          # TypeScript config
 ├── tailwind.config.ts     # Tailwind config
@@ -252,15 +252,12 @@ Portfolio/
 
 ## 📚 Content Updates
 
-All content has been updated from your LaTeX CV:
+Portfolio content covers:
 - ✅ Personal information and contact details
-- ✅ Education (DIU, Erasmus+ exchange, HSC)
-- ✅ Work experience (Teaching Assistant, IEEE roles)
-- ✅ Research areas (domain-based, not specific diseases)
-- ✅ Publications (all papers with DOIs and links)
-- ✅ Projects (from CV and GitHub)
-- ✅ Awards and achievements
-- ✅ Technical skills
+- ✅ Education (Al-Zaytoonah University of Jordan – Software Engineering)
+- ✅ Work experience (Front-End Intern, Skyline Glass, Menassat Al-Khair)
+- ✅ Projects (Menassat Al-Khair donation platform, Skyline Glass site)
+- ✅ Technical skills (React, Node.js, full-stack web)
 
 ---
 

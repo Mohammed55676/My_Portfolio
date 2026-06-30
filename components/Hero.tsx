@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Download, Github, Linkedin, Mail, Phone, ArrowDown, Sparkles, GraduationCap, Globe } from 'lucide-react'
+import { Download, Github, Linkedin, Mail, Phone, ArrowDown, Sparkles, GraduationCap } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Hero } from '@/lib/types'
@@ -22,7 +22,7 @@ const fallbackHero: Hero = {
   description: 'I build practical, user-focused web applications with clean interfaces, structured logic, and real-world problem solving.',
   email: 'mohaa34356@gmail.com',
   phone: '+962 77 653 2286',
-  cv_url: '#',
+  cv_url: '/cv.pdf',
   github_url: 'https://github.com/Mohammed55676/',
   linkedin_url: 'https://www.linkedin.com/in/eng-mohammed-hamdi/',
   profile_image_url: '/profile.jpg',
@@ -71,7 +71,7 @@ export default function Hero() {
 
   const heroData = hero || fallbackHero
   return (
-    <section id="home" className="min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-primary-50 pt-16 relative overflow-hidden">
+    <section id="home" className="min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-primary-50 pt-16 pb-20 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -207,17 +207,6 @@ export default function Hero() {
                   </Link>
                 </motion.div>
               )}
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="https://orcid.org/0009-0006-7551-0461"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:border-primary-600 hover:text-primary-600 transition-colors shadow-lg"
-                >
-                  <Globe size={20} />
-                  ORCID
-                </Link>
-              </motion.div>
             </motion.div>
           </motion.div>
 
@@ -253,25 +242,25 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.a
-            href="#about"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center text-gray-600 hover:text-primary-600 transition-colors"
-          >
-            <span className="text-sm mb-2">Scroll to explore</span>
-            <ArrowDown className="w-6 h-6" />
-          </motion.a>
-        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-5 left-1/2 transform -translate-x-1/2 z-10"
+      >
+        <motion.a
+          href="#about"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="flex flex-col items-center text-gray-600 hover:text-primary-600 transition-colors"
+        >
+          <span className="text-sm mb-2">Scroll to explore</span>
+          <ArrowDown className="w-6 h-6" />
+        </motion.a>
+      </motion.div>
     </section>
   )
 }

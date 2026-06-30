@@ -13,108 +13,11 @@ const fadeIn = {
   transition: { duration: 0.3, ease: 'easeOut' },
 }
 
-// Fallback research areas
-const fallbackResearchAreas: ResearchArea[] = [
-  {
-    icon: 'Brain',
-    title: 'Deep Learning',
-    description: 'Designing architectures for complex pattern recognition, focusing on hybrid models that blend multiple neural approaches.',
-    technologies: ['CNN', 'Transfer Learning', 'Hybrid Models'],
-    gradient: 'from-purple-500 to-indigo-500',
-    order: 0,
-  },
-  {
-    icon: 'Eye',
-    title: 'Computer Vision',
-    description: 'Image processing and visual pattern recognition for medical imaging, agricultural monitoring, and automated analysis.',
-    technologies: ['Image Processing', 'OpenCV', 'Feature Extraction'],
-    gradient: 'from-blue-500 to-cyan-500',
-    order: 1,
-  },
-  {
-    icon: 'Microscope',
-    title: 'Medical Image Analysis',
-    description: 'AI-driven disease detection, diagnosis support, and treatment planning across varied imaging modalities.',
-    technologies: ['Diagnostic AI', 'Healthcare ML', 'Disease Detection'],
-    gradient: 'from-red-500 to-rose-500',
-    order: 2,
-  },
-  {
-    icon: 'Leaf',
-    title: 'Agricultural Image Analysis',
-    description: 'Computer vision for crop disease detection, plant health monitoring, and sustainable farming insights.',
-    technologies: ['Agricultural AI', 'Crop Monitoring', 'Disease Classification'],
-    gradient: 'from-green-500 to-emerald-500',
-    order: 3,
-  },
-  {
-    icon: 'Sparkles',
-    title: 'Explainable AI',
-    description: 'Interpretability methods and visual explanations that make model decisions transparent and trustworthy.',
-    technologies: ['XAI', 'Model Interpretability', 'Visualization'],
-    gradient: 'from-amber-500 to-orange-500',
-    order: 4,
-  },
-  {
-    icon: 'Layers',
-    title: 'Hybrid Deep Learning',
-    description: 'Combining multiple deep learning approaches for stronger classification and detection performance.',
-    technologies: ['Ensemble Learning', 'Architecture Design', 'Multi-Modal'],
-    gradient: 'from-pink-500 to-rose-500',
-    order: 5,
-  },
-]
+// Fallback research areas — populate your own from the admin panel (Research Areas).
+const fallbackResearchAreas: ResearchArea[] = []
 
-// Fallback publications
-const fallbackPublications: Publication[] = [
-  {
-    title: 'SkinVisualNet: A Hybrid Deep Learning Approach Leveraging Explainable Models for Identifying Lyme Disease from Skin Rash Images',
-    authors: 'Sohel, A., Turjy, R. C. D., Bappy, S. P., Assaduzzaman, M., Marouf, A. A., Rokne, J. G., & Alhajj, R.',
-    status: 'Published',
-    journal: 'Machine Learning and Knowledge Extraction',
-    year: '2025',
-    doi: '10.3390/make7040157',
-    type: 'Journal Article (Q1)',
-    link: 'https://doi.org/10.3390/make7040157',
-    gradient: 'from-green-500 to-emerald-500',
-    order: 0,
-  },
-  {
-    title: 'JackVisualNet: A Fine-Tuned Hybrid Deep Learning Model for Jackfruit Disease Classification with Explainable AI',
-    authors: 'Bappy, S. P. et al.',
-    status: 'Major Revision',
-    journal: 'PeerJ Computer Science (Q1)',
-    year: '2025',
-    type: 'Journal Article',
-    link: '#',
-    gradient: 'from-yellow-500 to-amber-500',
-    order: 1,
-  },
-  {
-    title: 'A Hybrid Deep Learning Approach for Identifying Jackfruit Leaf and Fruit Disease',
-    authors: 'Paul, S., R.C.D. Turjy, A. Sohel',
-    status: 'Published (Abstract)',
-    journal: 'IEEE CS BDC Symposium 2024',
-    year: '2024',
-    type: 'Conference Proceedings',
-    volume: 'Vol. 3',
-    link: 'https://symposium24.ieeecsbdc.org/papers/20-a-hybrid-deep-learning-approach-for-identifying-jackfruit-leaf-and-fruit-disease',
-    gradient: 'from-blue-500 to-cyan-500',
-    order: 2,
-  },
-  {
-    title: 'A Hybrid Deep Learning Approach for Identifying Lyme Disease from Skin Rash Images',
-    authors: 'R.C.D. Turjy, Paul, S., A. Sohel',
-    status: 'Published (Abstract)',
-    journal: 'IEEE CS BDC Symposium 2024',
-    year: '2024',
-    type: 'Conference Proceedings',
-    volume: 'Vol. 3',
-    link: 'https://symposium24.ieeecsbdc.org/papers/20-a-hybrid-deep-learning-approach-for-identifying-jackfruit-leaf-and-fruit-disease',
-    gradient: 'from-purple-500 to-pink-500',
-    order: 3,
-  },
-]
+// Fallback publications — populate your own from the admin panel (Publications).
+const fallbackPublications: Publication[] = []
 
 export default function ResearchAndPublications() {
   const [researchAreas, setResearchAreas] = useState<ResearchArea[]>([])

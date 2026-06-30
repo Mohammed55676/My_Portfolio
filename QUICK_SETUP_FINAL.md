@@ -30,7 +30,7 @@
 ### Step 1: Database Setup
 
 1. **Go to Supabase Dashboard** → **SQL Editor**
-2. **Copy entire content** from `supabase_schema_complete.sql`
+2. **Copy entire content** from `supabase_schema_final.sql`
 3. **Paste and Run** in Supabase SQL Editor
 4. **Verify** all 11 tables were created:
    - education, publications, work_experience, projects, research_areas, courses
@@ -133,7 +133,7 @@ All icons must match **Lucide React** icon names. Common ones:
 ## 🐛 Troubleshooting
 
 ### "Table doesn't exist"
-**Fix:** Run `supabase_schema_complete.sql` in Supabase
+**Fix:** Run `supabase_schema_final.sql` in Supabase
 
 ### "Icon not showing"
 **Fix:** 
@@ -160,7 +160,7 @@ All icons must match **Lucide React** icon names. Common ones:
 
 ```
 portfolio/
-├── supabase_schema_complete.sql  # Complete database schema
+├── supabase_schema_final.sql  # Complete database schema
 ├── COMPLETE_SETUP_GUIDE.md       # Detailed setup guide
 ├── FINAL_IMPLEMENTATION_SUMMARY.md # What's done/remaining
 ├── lib/
@@ -184,7 +184,7 @@ portfolio/
 ## ✅ Checklist
 
 - [ ] Supabase account created
-- [ ] Database schema run (`supabase_schema_complete.sql`)
+- [ ] Database schema run (`supabase_schema_final.sql`)
 - [ ] Environment variables set
 - [ ] Migration script run
 - [ ] Admin panel accessible

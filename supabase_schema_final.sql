@@ -369,42 +369,12 @@ CREATE POLICY "Public read access for footer" ON footer
 CREATE POLICY "Public read access for settings" ON settings
   FOR SELECT USING (true);
 
--- Create policies for all operations (admin panel uses token-based auth)
-CREATE POLICY "Allow all operations for education" ON education
-  FOR ALL USING (true) WITH CHECK (true);
-
-CREATE POLICY "Allow all operations for publications" ON publications
-  FOR ALL USING (true) WITH CHECK (true);
-
-CREATE POLICY "Allow all operations for work_experience" ON work_experience
-  FOR ALL USING (true) WITH CHECK (true);
-
-CREATE POLICY "Allow all operations for projects" ON projects
-  FOR ALL USING (true) WITH CHECK (true);
-
-CREATE POLICY "Allow all operations for research_areas" ON research_areas
-  FOR ALL USING (true) WITH CHECK (true);
-
-CREATE POLICY "Allow all operations for courses" ON courses
-  FOR ALL USING (true) WITH CHECK (true);
-
-CREATE POLICY "Allow all operations for skills" ON skills
-  FOR ALL USING (true) WITH CHECK (true);
-
-CREATE POLICY "Allow all operations for hero" ON hero
-  FOR ALL USING (true) WITH CHECK (true);
-
-CREATE POLICY "Allow all operations for about" ON about
-  FOR ALL USING (true) WITH CHECK (true);
-
-CREATE POLICY "Allow all operations for contact_info" ON contact_info
-  FOR ALL USING (true) WITH CHECK (true);
-
-CREATE POLICY "Allow all operations for footer" ON footer
-  FOR ALL USING (true) WITH CHECK (true);
-
-CREATE POLICY "Allow all operations for settings" ON settings
-  FOR ALL USING (true) WITH CHECK (true);
+-- NOTE: No public write policies.
+-- The anon/publishable key (exposed in the browser) is intentionally read-only.
+-- All create/update/delete go through the protected Next.js API routes, which use
+-- the server-only SUPABASE_SECRET_KEY (service_role). The service_role key bypasses
+-- RLS, so no write policy is required here. Do NOT add "FOR ALL USING(true)"
+-- policies — that would let anyone with the public key modify your data.
 
 -- ============================================
 -- ALTER EXISTING TABLES TO ADD MISSING COLUMNS
