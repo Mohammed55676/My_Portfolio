@@ -10,7 +10,7 @@ import type { Theme } from '@/lib/types'
 const themeColors: Record<Theme, { light: string[]; dark: string[] }> = {
   minimal: {
     light: ['#171717', '#737373', '#e5e5e5'],
-    dark: ['#f5f5f5', '#a3a3a3', '#404040'],
+    dark: ['#f5f5f5', '#cbd0d9', '#30343a'],
   },
   modern: {
     light: ['#0ea5e9', '#14b8a6', '#e2e8f0'],
