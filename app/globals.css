@@ -756,8 +756,7 @@
 /* 1. Sections and Main Structure */
 .dark section,
 .dark main,
-.dark .section-container,
-.dark [class*="bg-gradient-to-"] {
+.dark .section-container {
   background: transparent !important;
 }
 
@@ -780,18 +779,17 @@
   border-color: rgb(var(--color-border)) !important;
 }
 
-/* 4. Small Boxes & Items */
+/* 4. Small Boxes, Pills, Badges & Tags */
+.dark .pill,
 .dark .bg-gray-50,
-.dark .bg-white {
-  background-color: rgb(var(--color-surface-elevated)) !important;
-  border-color: rgb(var(--color-border)) !important;
-}
-
-/* 5. Pills / Badges & Primary Light Boxes */
-.dark .pill {
+.dark .bg-gray-100,
+.dark .bg-white,
+.dark span[class*="rounded-full"],
+.dark div[class*="rounded-full"][class*="px-"] {
   background-color: rgb(var(--color-surface-elevated)) !important;
   color: rgb(var(--color-text)) !important;
-  border-color: rgb(var(--color-border)) !important;
+  border: 1px solid rgb(var(--color-border)) !important;
+  box-shadow: none !important;
 }
 
 .dark [class*="bg-primary-50"],
@@ -801,13 +799,29 @@
   border-color: rgb(var(--color-primary) / 0.3) !important;
 }
 
+/* 5. Icons inside Colored & Gradient Boxes */
+.dark [class*="bg-gradient-to-"] {
+  color: white !important;
+}
+
+.dark [class*="bg-gradient-to-"] svg {
+  color: white !important;
+}
+
 /* 6. High-Contrast Buttons (Primary & Secondary) */
 .dark .btn-primary,
-.dark [class*="bg-primary-600"],
+.dark a[class*="bg-primary-600"],
+.dark button[class*="bg-primary-600"],
 .dark [class*="from-primary-600"] {
   color: rgb(var(--color-background)) !important;
   font-weight: 700 !important;
   border: none !important;
+}
+
+.dark .btn-primary svg,
+.dark a[class*="bg-primary-600"] svg,
+.dark button[class*="bg-primary-600"] svg {
+  color: rgb(var(--color-background)) !important;
 }
 
 .dark .btn-secondary,
@@ -852,11 +866,11 @@
 }
 
 .dark p:not([class*="text-primary-"]):not(.text-white):not(.text-red-500),
-.dark span:not(.gradient-text):not([class*="text-primary-"]):not(.text-white):not([class*="bg-"]),
+.dark span:not(.gradient-text):not([class*="text-primary-"]):not(.text-white):not([class*="bg-"]):not([class*="rounded-full"]),
 .dark label,
-.dark .text-gray-700,
-.dark .text-gray-600,
-.dark .text-gray-500,
+.dark .text-gray-700:not([class*="rounded-full"]),
+.dark .text-gray-600:not([class*="rounded-full"]),
+.dark .text-gray-500:not([class*="rounded-full"]),
 .dark .text-slate-700,
 .dark .text-slate-600,
 .dark .text-slate-500,

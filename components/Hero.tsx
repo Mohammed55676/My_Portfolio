@@ -33,6 +33,7 @@ const fallbackHero: Hero = {
 export default function Hero() {
   const [hero, setHero] = useState<Hero | null>(null)
   const [loading, setLoading] = useState(true)
+  const [imgFailed, setImgFailed] = useState(false)
 
   useEffect(() => {
     fetchHero()
@@ -78,6 +79,12 @@ export default function Hero() {
   // Resolve the CV link: ignore empty/placeholder values and fall back to the
   // bundled /cv.pdf so the button never downloads the current HTML page.
   const cvUrl = heroData.cv_url && heroData.cv_url !== '#' ? heroData.cv_url : '/cv.pdf'
+  // Resolve the profile image the same way: ignore empty/placeholder values and
+  // fall back to the bundled /profile.jpg if the stored URL is missing or fails to load.
+  const profileSrc =
+    imgFailed || !heroData.profile_image_url || heroData.profile_image_url === '#'
+      ? '/profile.jpg'
+      : heroData.profile_image_url
   return (
     <section id="home" className="min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-primary-50 pt-16 pb-24 relative overflow-hidden">
       {/* Animated background elements */}
@@ -237,12 +244,13 @@ export default function Hero() {
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <Image
-                  src={heroData.profile_image_url || '/profile.jpg'}
+                  src={profileSrc}
                   alt={heroData.name}
                   fill
                   className="object-cover"
                   priority
                   sizes="(max-width: 768px) 320px, 384px"
+                  onError={() => setImgFailed(true)}
                 />
               </motion.div>
             </div>
