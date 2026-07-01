@@ -177,11 +177,11 @@ export default function ThemeSwitcher() {
                         }}
                       >
                         {/* Color preview */}
-                        <div className="flex -space-x-1">
+                        <div className="flex -space-x-1 flex-shrink-0">
                           {colors.map((color, i) => (
                             <div
                               key={i}
-                              className="w-5 h-5 rounded-full border-2 border-white dark:border-gray-800"
+                              className="w-5 h-5 rounded-full border border-black/15 dark:border-white/20 shadow-sm"
                               style={{ backgroundColor: color }}
                             />
                           ))}

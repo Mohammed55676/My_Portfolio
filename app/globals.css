@@ -784,7 +784,7 @@
 .dark .bg-gray-50,
 .dark .bg-gray-100,
 .dark .bg-white,
-.dark span[class*="rounded-full"],
+.dark span[class*="rounded-full"][class*="px-"],
 .dark div[class*="rounded-full"][class*="px-"] {
   background-color: rgb(var(--color-surface-elevated)) !important;
   color: rgb(var(--color-text)) !important;
@@ -824,8 +824,7 @@
   color: rgb(var(--color-background)) !important;
 }
 
-.dark .btn-secondary,
-.dark [class*="border-gray-"] {
+.dark .btn-secondary {
   border-color: rgb(var(--color-border)) !important;
   color: rgb(var(--color-text)) !important;
   background-color: transparent !important;
