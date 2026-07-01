@@ -84,7 +84,7 @@ export default function WorkExperience() {
     )
   }
   return (
-    <section id="experience" className="section-container bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+    <section id="experience" className="section-container relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-10 -left-10 w-80 h-80 bg-primary-200/12 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-300/12 rounded-full blur-3xl" />
@@ -92,10 +92,10 @@ export default function WorkExperience() {
 
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div {...fadeIn} className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-theme-text">
             Work Experience & <span className="gradient-text">Volunteering</span>
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 dark:text-theme-text-muted">
             Professional roles, leadership, and community involvement
           </p>
         </motion.div>
@@ -106,43 +106,45 @@ export default function WorkExperience() {
               key={role.title}
               {...fadeIn}
               transition={{ ...fadeIn.transition, delay: idx * 0.05 }}
-              className="group relative overflow-hidden rounded-2xl p-[1px] bg-gradient-to-r from-white via-primary-100/30 to-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-2xl p-[1px] bg-gradient-to-r from-white via-primary-100/30 to-white dark:from-theme-border dark:via-theme-primary/30 dark:to-theme-border shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
             >
-              <div className="relative rounded-2xl bg-white/75 backdrop-blur-xl border border-white/60 p-6 h-full">
+              <div className="relative rounded-2xl bg-white/80 dark:bg-theme-surface/95 backdrop-blur-xl border border-white/60 dark:border-theme-border p-6 h-full">
                 <div className="flex items-start gap-4">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${role.gradient} flex items-center justify-center text-white shadow-md`}>
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${role.gradient} flex items-center justify-center text-white shadow-md flex-shrink-0`}>
                     {(() => {
                       const Icon = role.icon && iconMap[role.icon] ? iconMap[role.icon] : iconMap.Briefcase
-                      return <Icon className="w-6 h-6" />
+                      return <Icon className="w-6 h-6 text-white" />
                     })()}
                   </div>
-                  <div className="flex-1 space-y-2">
-                    <div className="flex items-start justify-between gap-2">
+                  <div className="flex-1 space-y-2 min-w-0">
+                    <div className="flex items-start justify-between gap-2 flex-wrap">
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900">{role.title}</h3>
-                        <p className="text-primary-600 font-medium">{role.organization}</p>
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-theme-text">{role.title}</h3>
+                        <p className="text-primary-600 dark:text-theme-primary font-medium">{role.organization}</p>
                       </div>
                       <span
-                        className={`px-3 py-1 text-xs font-semibold rounded-full shadow-sm ${
+                        className={`px-3 py-1 text-xs font-semibold rounded-full shadow-sm border ${
                           role.type === 'Work'
-                            ? 'bg-gradient-to-r from-emerald-100 to-emerald-200 text-emerald-800'
-                            : 'bg-gradient-to-r from-sky-100 to-blue-200 text-blue-800'
+                            ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/60'
+                            : 'bg-sky-100 dark:bg-sky-950/80 text-blue-800 dark:text-sky-300 border-sky-200 dark:border-sky-800/60'
                         }`}
                       >
                         {role.type}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-500">{role.period}</p>
-                    <p className="text-gray-700 text-sm leading-relaxed">{role.description}</p>
+                    <p className="text-sm text-gray-500 dark:text-theme-text-muted">{role.period}</p>
+                    <p className="text-gray-700 dark:text-theme-text/90 text-sm leading-relaxed">{role.description}</p>
                   </div>
                 </div>
 
-                <div className="mt-4 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+                <div className="mt-4 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-theme-border to-transparent" />
 
                 <div className="mt-3 flex flex-wrap gap-2 text-xs">
-                  <span className="px-3 py-1 rounded-full bg-gray-100 text-gray-700">Leadership</span>
-                  <span className="px-3 py-1 rounded-full bg-gray-100 text-gray-700">Impact</span>
-                  <span className="px-3 py-1 rounded-full bg-gray-100 text-gray-700">Collaboration</span>
+                  {['Leadership', 'Impact', 'Collaboration'].map((tag) => (
+                    <span key={tag} className="px-3 py-1 rounded-full bg-gray-100 dark:bg-theme-surface-elevated text-gray-700 dark:text-theme-text border border-gray-200 dark:border-theme-border shadow-sm">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>

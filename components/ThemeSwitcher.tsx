@@ -106,7 +106,7 @@ export default function ThemeSwitcher() {
                 </span>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-theme-surface-elevated transition-colors"
                 >
                   <X className="w-4 h-4" style={{ color: 'rgb(var(--color-text-muted))' }} />
                 </button>
@@ -167,7 +167,7 @@ export default function ThemeSwitcher() {
                         className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all duration-200 ${
                           isSelected 
                             ? '' 
-                            : 'hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                            : 'hover:bg-gray-50 dark:hover:bg-theme-surface-elevated/80'
                         }`}
                         style={{
                           backgroundColor: isSelected 

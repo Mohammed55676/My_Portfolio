@@ -141,13 +141,13 @@ export default function Skills() {
                 key={category}
                 {...fadeIn}
                 transition={{ ...fadeIn.transition, delay: idx * 0.05 }}
-                className="group relative bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                className="group relative bg-white dark:bg-theme-surface border border-gray-100 dark:border-theme-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${config.gradient} flex items-center justify-center mb-4 text-white shadow-lg`}>
-                  <Icon className="w-7 h-7" />
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${config.gradient} flex items-center justify-center mb-4 text-white shadow-lg flex-shrink-0`}>
+                  <Icon className="w-7 h-7 text-white" />
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{category}</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-theme-text mb-4">{category}</h3>
 
                 <div className="flex flex-wrap gap-2">
                   {categorySkills.map((skill) => {
@@ -157,12 +157,12 @@ export default function Skills() {
                       <motion.span
                         key={skill.id}
                         whileHover={{ scale: 1.05, y: -2 }}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-xs font-medium border border-gray-200 hover:border-primary-300 hover:bg-primary-50 transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 dark:bg-theme-surface-elevated text-gray-700 dark:text-theme-text rounded-lg text-xs font-medium border border-gray-200 dark:border-theme-border hover:border-primary-300 dark:hover:border-theme-primary hover:bg-primary-50 dark:hover:bg-theme-primary/15 transition-colors"
                       >
                         {SkillIcon && <SkillIcon className="w-3.5 h-3.5" />}
                         <span>{skill.name}</span>
                         {skill.level && (
-                          <span className="ml-1 text-xs text-gray-500">({skill.level})</span>
+                          <span className="ml-1 text-xs text-gray-500 dark:text-theme-text-muted">({skill.level})</span>
                         )}
                       </motion.span>
                     )

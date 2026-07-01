@@ -114,7 +114,7 @@ export default function Education() {
               {/* Gradient glow */}
               <div className={`absolute inset-0 bg-gradient-to-r ${edu.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}></div>
 
-              <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-gray-100/50 transition-all duration-300 group-hover:shadow-2xl group-hover:border-primary-200/50">
+              <div className="relative bg-white/80 dark:bg-theme-surface/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-gray-100/50 dark:border-theme-border transition-all duration-300 group-hover:shadow-2xl group-hover:border-primary-200/50 dark:group-hover:border-theme-primary/50">
                 <div className="flex items-start gap-6">
                   <motion.div
                     className="flex-shrink-0"
@@ -128,23 +128,23 @@ export default function Education() {
                       })()}
                     </div>
                   </motion.div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-theme-text">
                       {edu.degree || edu.program}
                     </h3>
-                    <p className="text-primary-600 font-semibold mb-1">{edu.institution}</p>
-                    <p className="text-gray-500 text-sm mb-2">{edu.location}</p>
+                    <p className="text-primary-600 dark:text-theme-primary font-semibold mb-1">{edu.institution}</p>
+                    <p className="text-gray-500 dark:text-theme-text-muted text-sm mb-2">{edu.location}</p>
                     {edu.gpa && (
                       <motion.p
                         initial={{ scale: 0.9 }}
                         whileInView={{ scale: 1 }}
                         viewport={{ once: true }}
-                        className="text-gray-700 font-bold mb-2 text-lg"
+                        className="text-gray-700 dark:text-theme-text font-bold mb-2 text-lg"
                       >
                         {edu.gpa}
                       </motion.p>
                     )}
-                    <p className="text-gray-500 mb-4">{edu.period}</p>
+                    <p className="text-gray-500 dark:text-theme-text-muted mb-4">{edu.period}</p>
                     <ul className="space-y-2">
                       {edu.highlights.map((highlight, i) => (
                         <motion.li
@@ -153,7 +153,7 @@ export default function Education() {
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: i * 0.1 }}
-                          className="text-gray-600 flex items-start"
+                          className="text-gray-600 dark:text-theme-text/90 flex items-start"
                         >
                           <span className={`text-transparent bg-clip-text bg-gradient-to-r ${edu.gradient} mr-2 font-bold`}>•</span>
                           {highlight}
@@ -170,8 +170,8 @@ export default function Education() {
         {/* Courses & Certifications Section */}
         {courses && courses.length > 0 && (
           <motion.div {...fadeIn} className="mt-16 max-w-4xl mx-auto">
-            <motion.div whileHover={{ scale: 1.01 }} className="card bg-gradient-to-br from-primary-50 via-white to-primary-50/50 border-primary-200/50 rounded-2xl p-6">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900">Courses & Certifications</h3>
+            <motion.div whileHover={{ scale: 1.01 }} className="card bg-gradient-to-br from-primary-50 via-white to-primary-50/50 dark:from-theme-surface dark:via-theme-surface dark:to-theme-surface border border-primary-200/50 dark:border-theme-border rounded-2xl p-6">
+              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-theme-text">Courses & Certifications</h3>
               <div className="space-y-4">
                 {courses.map((item, i) => (
                   <motion.div
@@ -183,10 +183,10 @@ export default function Education() {
                     whileHover={{ x: 5 }}
                     className="relative"
                   >
-                    <div className="flex items-center justify-between p-4 rounded-xl bg-white/50 border border-gray-100 hover:border-primary-200 transition-all">
+                    <div className="flex items-center justify-between p-4 rounded-xl bg-white/50 dark:bg-theme-surface-elevated border border-gray-100 dark:border-theme-border hover:border-primary-200 dark:hover:border-theme-primary transition-all">
                       <div>
-                        <h4 className="font-bold text-primary-600 mb-1">{item.title}</h4>
-                        <p className="text-gray-600 text-sm">{item.desc}</p>
+                        <h4 className="font-bold text-primary-600 dark:text-theme-primary mb-1">{item.title}</h4>
+                        <p className="text-gray-600 dark:text-theme-text-muted text-sm">{item.desc}</p>
                       </div>
 
                       {item.verifyLink && (

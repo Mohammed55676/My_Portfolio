@@ -86,21 +86,21 @@ export default function ResearchAndPublications() {
               key={area.title}
               {...fadeIn}
               transition={{ ...fadeIn.transition, delay: idx * 0.05 }}
-              className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+              className="bg-white dark:bg-theme-surface border border-gray-100 dark:border-theme-border rounded-2xl p-5 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
             >
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${area.gradient} flex items-center justify-center text-white mb-4`}>
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${area.gradient} flex items-center justify-center text-white mb-4 flex-shrink-0`}>
                 {(() => {
                   const Icon = area.icon && iconMap[area.icon] ? iconMap[area.icon] : iconMap.Brain
-                  return <Icon className="w-6 h-6" />
+                  return <Icon className="w-6 h-6 text-white" />
                 })()}
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{area.title}</h3>
-              <p className="text-sm text-gray-700 leading-relaxed mb-3">{area.description}</p>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-theme-text mb-2">{area.title}</h3>
+              <p className="text-sm text-gray-700 dark:text-theme-text-muted leading-relaxed mb-3">{area.description}</p>
               <div className="flex flex-wrap gap-2">
                 {area.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 text-xs bg-gray-50 text-gray-700 border border-gray-200 rounded-lg"
+                    className="px-3 py-1 text-xs bg-gray-50 dark:bg-theme-surface-elevated text-gray-700 dark:text-theme-text border border-gray-200 dark:border-theme-border rounded-lg"
                   >
                     {tech}
                   </span>
@@ -112,8 +112,8 @@ export default function ResearchAndPublications() {
 
         <div className="space-y-4">
           <motion.div {...fadeIn} className="text-center">
-            <h3 className="text-3xl font-bold text-gray-900 mb-2">Selected Publications</h3>
-            <p className="text-gray-600">Recent publications and manuscripts in progress</p>
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-theme-text mb-2">Selected Publications</h3>
+            <p className="text-gray-600 dark:text-theme-text-muted">Recent publications and manuscripts in progress</p>
           </motion.div>
 
           <div className="space-y-4">
@@ -122,63 +122,63 @@ export default function ResearchAndPublications() {
                 key={pub.title}
                 {...fadeIn}
                 transition={{ ...fadeIn.transition, delay: idx * 0.05 }}
-                className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                className="bg-white dark:bg-theme-surface border border-gray-100 dark:border-theme-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
               >
                 <div className="flex items-start gap-4">
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${pub.gradient} flex items-center justify-center text-white`}>
-                    <FileText className="w-5 h-5" />
+                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${pub.gradient} flex items-center justify-center text-white flex-shrink-0`}>
+                    <FileText className="w-5 h-5 text-white" />
                   </div>
-                  <div className="flex-1 space-y-2">
-                    <h4 className="text-lg font-semibold text-gray-900 leading-snug">{pub.title}</h4>
-                    <p className="text-sm text-gray-600">{pub.authors}</p>
-                    <div className="flex flex-wrap gap-2 text-sm">
-                      <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg font-medium">{pub.type}</span>
-                      {pub.journal && <span className="text-primary-700 font-semibold">{pub.journal}</span>}
-                      {pub.year && <span className="text-gray-500">({pub.year})</span>}
-                      {pub.doi && <span className="px-3 py-1 bg-primary-50 text-primary-700 rounded-lg font-medium">DOI: {pub.doi}</span>}
-                      {pub.volume && <span className="text-gray-500">{pub.volume}</span>}
+                  <div className="flex-1 space-y-2 min-w-0">
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-theme-text leading-snug">{pub.title}</h4>
+                    <p className="text-sm text-gray-600 dark:text-theme-text-muted">{pub.authors}</p>
+                    <div className="flex flex-wrap items-center gap-2 text-sm">
+                      <span className="px-3 py-1 bg-gray-100 dark:bg-theme-surface-elevated text-gray-700 dark:text-theme-text border border-transparent dark:border-theme-border rounded-lg font-medium">{pub.type}</span>
+                      {pub.journal && <span className="text-primary-700 dark:text-theme-primary font-semibold">{pub.journal}</span>}
+                      {pub.year && <span className="text-gray-500 dark:text-theme-text-muted">({pub.year})</span>}
+                      {pub.doi && <span className="px-3 py-1 bg-primary-50 dark:bg-theme-primary/15 text-primary-700 dark:text-theme-primary border border-transparent dark:border-theme-primary/30 rounded-lg font-medium">DOI: {pub.doi}</span>}
+                      {pub.volume && <span className="text-gray-500 dark:text-theme-text-muted">{pub.volume}</span>}
                     </div>
                     <div className="flex items-center gap-3 text-xs font-semibold">
                       {(() => {
                         const status = pub.status?.trim() || ''
                         if (status === 'Published') {
                           return (
-                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-green-100 text-green-700">
+                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-green-100 dark:bg-green-950/80 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800/60">
                               <CheckCircle className="w-3.5 h-3.5" /> Published
                             </span>
                           )
                         }
                         if (status === 'Major Revision') {
                           return (
-                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-100 text-amber-800">
+                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60">
                               <Clock className="w-3.5 h-3.5" /> Major Revision
                             </span>
                           )
                         }
                         if (status === 'Published (Abstract)') {
                           return (
-                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 text-blue-800">
+                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60">
                               <Sparkles className="w-3.5 h-3.5" /> Abstract
                             </span>
                           )
                         }
                         if (status === 'Under Review') {
                           return (
-                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-purple-100 text-purple-800">
+                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
                               <Clock className="w-3.5 h-3.5" /> Under Review
                             </span>
                           )
                         }
                         if (status === 'Draft') {
                           return (
-                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 text-gray-800">
+                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 dark:bg-theme-surface-elevated text-gray-800 dark:text-theme-text border border-gray-200 dark:border-theme-border">
                               <FileText className="w-3.5 h-3.5" /> Draft
                             </span>
                           )
                         }
                         // Fallback for any other status
                         return (
-                          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 text-gray-800">
+                          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 dark:bg-theme-surface-elevated text-gray-800 dark:text-theme-text border border-gray-200 dark:border-theme-border">
                             <FileText className="w-3.5 h-3.5" /> {status || 'Unknown'}
                           </span>
                         )
@@ -190,7 +190,7 @@ export default function ResearchAndPublications() {
                       href={pub.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg text-primary-600 hover:bg-primary-50 transition-colors"
+                      className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg text-primary-600 dark:text-theme-primary hover:bg-primary-50 dark:hover:bg-theme-surface-elevated transition-colors"
                     >
                       <ExternalLink className="w-5 h-5" />
                     </a>

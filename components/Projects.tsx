@@ -102,29 +102,29 @@ export default function Projects() {
               key={project.title}
               {...fadeIn}
               transition={{ ...fadeIn.transition, delay: idx * 0.05 }}
-              className="group relative bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+              className="group relative bg-white dark:bg-theme-surface border border-gray-100 dark:border-theme-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
             >
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${project.gradient} flex items-center justify-center mb-4 text-white shadow-lg`}>
+              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${project.gradient} flex items-center justify-center mb-4 text-white shadow-lg flex-shrink-0`}>
                 {(() => {
                   const Icon = project.icon && iconMap[project.icon] ? iconMap[project.icon] : iconMap.Code
-                  return <Icon className="w-7 h-7" />
+                  return <Icon className="w-7 h-7 text-white" />
                 })()}
               </div>
 
               <div className="flex items-start justify-between gap-3 mb-3">
-                <h3 className="text-xl font-bold text-gray-900 leading-tight flex-1">{project.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-theme-text leading-tight flex-1">{project.title}</h3>
                 <span className={`px-3 py-1 bg-gradient-to-r ${project.gradient} text-white rounded-full text-xs font-semibold whitespace-nowrap`}>
                   {project.category}
                 </span>
               </div>
 
-              <p className="text-gray-600 mb-4 leading-relaxed text-sm">{project.description}</p>
+              <p className="text-gray-600 dark:text-theme-text-muted mb-4 leading-relaxed text-sm">{project.description}</p>
 
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-xs font-medium border border-gray-200"
+                    className="px-3 py-1.5 bg-gray-50 dark:bg-theme-surface-elevated text-gray-700 dark:text-theme-text rounded-lg text-xs font-medium border border-gray-200 dark:border-theme-border"
                   >
                     {tech}
                   </span>
@@ -132,13 +132,13 @@ export default function Projects() {
               </div>
 
               {(project.github || project.live_demo) && (
-                <div className="flex flex-wrap gap-4 mt-auto pt-4 border-t border-gray-100">
+                <div className="flex flex-wrap gap-4 mt-auto pt-4 border-t border-gray-100 dark:border-theme-border">
                   {project.github && (
                     <Link
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-sm"
+                      className="flex items-center gap-2 text-primary-600 dark:text-theme-primary hover:text-primary-700 dark:hover:text-theme-primary-hover font-semibold text-sm"
                     >
                       <Github className="w-5 h-5" />
                       <span>View Code</span>
@@ -149,7 +149,7 @@ export default function Projects() {
                       href={project.live_demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold text-sm"
+                      className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-semibold text-sm"
                     >
                       <ExternalLink className="w-5 h-5" />
                       <span>Live Demo</span>

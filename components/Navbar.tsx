@@ -85,7 +85,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-white/95 dark:bg-theme-surface/95 backdrop-blur-md shadow-lg border-b border-transparent dark:border-theme-border' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -112,7 +112,7 @@ export default function Navbar() {
                     onClick={() => {
                       setIsMobileMenuOpen(false)
                     }}
-                    className="transition-colors font-medium text-gray-700 hover:text-primary-600"
+                    className="transition-colors font-medium text-gray-700 dark:text-theme-text/80 hover:text-primary-600 dark:hover:text-theme-primary"
                   >
                     {item.name}
                   </Link>
@@ -126,15 +126,15 @@ export default function Navbar() {
                   onClick={(e) => handleLinkClick(e, item.href)}
                   className={`transition-colors font-medium relative ${
                     activeSection === sectionId
-                      ? 'text-primary-600'
-                      : 'text-gray-700 hover:text-primary-600'
+                      ? 'text-primary-600 dark:text-theme-primary font-semibold'
+                      : 'text-gray-700 dark:text-theme-text/80 hover:text-primary-600 dark:hover:text-theme-primary'
                   }`}
                 >
                   {item.name}
                   {activeSection === sectionId && (
                     <motion.div
                       layoutId="activeSection"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-600"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-600 dark:bg-theme-primary"
                       initial={false}
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
@@ -146,7 +146,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-700"
+            className="md:hidden text-gray-700 dark:text-theme-text"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -161,7 +161,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t"
+            className="md:hidden bg-white dark:bg-theme-surface border-t border-gray-200 dark:border-theme-border shadow-xl"
           >
             <div className="px-4 py-4 space-y-4">
               {navItems.map((item) => {
@@ -176,7 +176,7 @@ export default function Navbar() {
                       onClick={() => {
                         setIsMobileMenuOpen(false)
                       }}
-                      className="block transition-colors font-medium text-gray-700 hover:text-primary-600"
+                      className="block transition-colors font-medium text-gray-700 dark:text-theme-text/80 hover:text-primary-600 dark:hover:text-theme-primary"
                     >
                       {item.name}
                     </Link>
@@ -190,8 +190,8 @@ export default function Navbar() {
                     onClick={(e) => handleLinkClick(e, item.href)}
                     className={`block transition-colors font-medium ${
                       activeSection === sectionId
-                        ? 'text-primary-600'
-                        : 'text-gray-700 hover:text-primary-600'
+                        ? 'text-primary-600 dark:text-theme-primary font-semibold'
+                        : 'text-gray-700 dark:text-theme-text/80 hover:text-primary-600 dark:hover:text-theme-primary'
                     }`}
                   >
                     {item.name}
