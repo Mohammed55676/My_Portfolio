@@ -247,7 +247,8 @@ export default function Hero() {
                   src={profileSrc}
                   alt={heroData.name}
                   fill
-                  className="object-cover object-center"
+                  className="object-cover"
+                  style={{ objectPosition: 'center 12%' }}
                   priority
                   sizes="(max-width: 768px) 320px, 384px"
                   onError={() => setImgFailed(true)}
