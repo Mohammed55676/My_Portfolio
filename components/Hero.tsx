@@ -25,7 +25,7 @@ const fallbackHero: Hero = {
   cv_url: '/cv.pdf',
   github_url: 'https://github.com/Mohammed55676/',
   linkedin_url: 'https://www.linkedin.com/in/eng-mohammed-hamdi/?locale=en',
-  profile_image_url: '/download.jpeg',
+  profile_image_url: '/Image.webp',
   focus_tags: ['React', 'Full-Stack Development', 'Software Design', 'Git & Linux'],
   order: 0,
 }
@@ -80,10 +80,10 @@ export default function Hero() {
   // bundled /cv.pdf so the button never downloads the current HTML page.
   const cvUrl = heroData.cv_url && heroData.cv_url !== '#' ? heroData.cv_url : '/cv.pdf'
   // Resolve the profile image the same way: ignore empty/placeholder values and
-  // fall back to the bundled /download.jpeg if the stored URL is missing or fails to load.
+  // fall back to the bundled /Image.webp if the stored URL is missing or fails to load.
   const profileSrc =
-    imgFailed || !heroData.profile_image_url || heroData.profile_image_url === '#' || heroData.profile_image_url === '/profile.jpg'
-      ? '/download.jpeg'
+    imgFailed || !heroData.profile_image_url || heroData.profile_image_url === '#' || heroData.profile_image_url === '/profile.jpg' || heroData.profile_image_url === '/download.jpeg'
+      ? '/Image.webp'
       : heroData.profile_image_url
   return (
     <section id="home" className="min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-primary-50 pt-16 pb-24 relative overflow-hidden">

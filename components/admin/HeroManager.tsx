@@ -42,7 +42,7 @@ export default function HeroManager() {
       cv_url: '/cv.pdf',
       github_url: 'https://github.com/Mohammed55676/',
       linkedin_url: 'https://www.linkedin.com/in/eng-mohammed-hamdi/?locale=en',
-      profile_image_url: '/download.jpeg',
+      profile_image_url: '/Image.webp',
       focus_tags: [],
       order: 0,
     })
