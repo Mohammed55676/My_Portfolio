@@ -239,7 +239,7 @@ export default function Hero() {
                 }}
               />
               <motion.div
-                className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl"
+                className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-white/20 shadow-2xl"
                 whileHover={{ scale: 1.05, rotate: 2 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
@@ -247,7 +247,7 @@ export default function Hero() {
                   src={profileSrc}
                   alt={heroData.name}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   priority
                   sizes="(max-width: 768px) 320px, 384px"
                   onError={() => setImgFailed(true)}
